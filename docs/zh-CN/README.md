@@ -1,8 +1,8 @@
 <div align="right">
-  Language:
-  🇺🇸
-  <a title="Chinese" href="docs/zh-CN/README.md">🇨🇳</a>
-  <a title="Russian" href="docs/ru/README.md">🇷🇺</a>
+  语言:
+  <a title="英语" href="../../README.md">🇺🇸</a>
+  🇨🇳
+  <a title="俄语" href="../ru/README.md">🇷🇺</a>
 </div>
 
 <picture>
@@ -11,11 +11,11 @@
   <img alt="NexT preview" src="https://raw.githubusercontent.com/next-theme/theme-next-docs/v8.13.0/source/images/next-schemes.png">
 </picture>
 
-<a title="NexT website" href="https://theme-next.js.org"><img align="right" alt="NexT logo" width="100" height="100" src="https://raw.githubusercontent.com/next-theme/hexo-theme-next/master/source/images/logo.svg"></a>
+<a title="NexT 网站" href="https://theme-next.js.org"><img align="right" alt="NexT logo" width="100" height="100" src="https://raw.githubusercontent.com/next-theme/hexo-theme-next/master/source/images/logo.svg"></a>
 
 # NexT
 
-> «NexT» is a high quality elegant [Hexo](https://hexo.io) theme. It is crafted from scratch with love.
+> «NexT» 是一款风格优雅的高质量 [Hexo](https://hexo.io) 主题，自点点滴滴中用爱雕琢而成。
 
 [![NPM version](https://img.shields.io/npm/v/hexo-theme-next?color=red&logo=npm&style=flat-square)](https://www.npmjs.com/package/hexo-theme-next)
 [![Required Hexo version](https://img.shields.io/badge/hexo-%3E=5.3.0-blue?style=flat-square&logo=hexo)](https://hexo.io)
@@ -24,50 +24,50 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/next-theme/hexo-theme-next/tester.yml?branch=master&logo=github&style=flat-square)](https://github.com/next-theme/hexo-theme-next/actions?query=workflow%3ATester)
 [![Coverage Status](https://img.shields.io/coveralls/github/next-theme/hexo-theme-next?logo=coveralls&style=flat-square)](https://coveralls.io/github/next-theme/hexo-theme-next)
 
-## Live Preview
+## 即时预览
 
 <p align="center">
   💟 <a href="https://theme-next.js.org/muse/">Muse</a> | 🔯 <a href="https://theme-next.js.org/mist/">Mist</a> | ♓️ <a href="https://theme-next.js.org/pisces/">Pisces</a> | ♊️ <a href="https://theme-next.js.org">Gemini</a>
 <br>
 <br>
-  More «NexT» examples <a href="https://github.com/next-theme/awesome-next#live-preview">here</a>.
+  更多 «NexT» 的例子参见<a href="https://github.com/next-theme/awesome-next#live-preview">这里</a>。
 </p>
 
-## Installation
+## 安装
 
-If you're using Hexo 5.0 or later, the simplest way to install is through npm:
+如果你在使用 Hexo 5.0 或更新版本，最简单的安装方式是通过 npm：
 
 ```sh
 $ cd hexo-site
 $ npm install hexo-theme-next
 ```
 
-Or you can clone the entire repository:
+你也可以直接克隆整个仓库：
 
 ```sh
 $ cd hexo-site
 $ git clone https://github.com/next-theme/hexo-theme-next themes/next
 ```
 
-See [detailed installation instructions][docs-installation-url] if you want any other variant.
+此外，如果你想要使用其他方式，请参见[详细安装步骤][docs-installation-url]。
 
-After the installation, open Hexo config file and set `theme` variable to `next`.
+安装完成后，在 Hexo 配置文件中将 `theme` 设置为 `next`。
 
 ```yml
 theme: next
 ```
 
-## Configuration
+## 配置
 
-It is not recommended to directly modify any files in the NexT theme. Because this may cause errors (e.g. merge conflicts), and the modified files may be discarded when upgrading the theme.
+我们不推荐直接修改 NexT 主题的文件。因为这可能导致错误（例如 git merge 冲突），并且在升级主题时修改的文件可能丢失。
 
-At present, NexT encourages users to use the [Alternate Theme Config][docs-configuration-url] to configure NexT. And it's easy to customize the layout or style of NexT using [Custom Files][docs-custom-files-url].
+目前 NexT 鼓励用户使用 [Alternate Theme Config][docs-configuration-url] 进行配置。并且可以轻松地通过 [Custom Files][docs-custom-files-url] 自定义主题的布局和样式。
 
-## Plugins
+## 插件
 
-Plugins extend and expand the functionality of NexT. There are two types of plugins: core plugins and third-party plugins. The core plugins are required by the basic functions of NexT. Third-party plugins provide a large number of optional features.
+插件丰富和拓展了 NexT 的功能。这些插件分为两种：核心插件和第三方插件。核心插件被 NexT 的基础功能所依赖。第三方插件提供了大量的可选功能。
 
-Configuring these plugins is very easy. For example, if you want to enable `pjax` on your site, just set `pjax` to `true` in NexT config file:
+配置这些插件非常简单。例如，你想要在你的站点中使用 `pjax` 插件，请进入 NexT 配置文件，启用 `pjax` 配置项：
 
 ```yml
 # Easily enable fast Ajax navigation on your website.
@@ -75,11 +75,11 @@ Configuring these plugins is very easy. For example, if you want to enable `pjax
 pjax: true
 ```
 
-### Configure CDN
+### 设置 CDN
 
-Third-party plugins are loaded from [CDNJS](https://cdnjs.com) CDN by default. We also provide other optional CDNs, including the famous [UNPKG](https://unpkg.com) and [jsDelivr](https://www.jsdelivr.com).
+第三方插件默认通过 [CDNJS](https://cdnjs.com) CDN 服务加载。我们也提供了其它的 CDN 服务供选择，包括著名的 [UNPKG](https://unpkg.com) 和 [jsDelivr](https://www.jsdelivr.com)。
 
-For example, if you want to use `unpkg` instead of `cdnjs` as the default CDN provider, you need to edit the following settings in NexT config file:
+例如，你想要使用 `unpkg` 代替 `cdnjs` 作为默认的 CDN 提供商，你需要在 NexT 配置文件中进行如下设置：
 
 ```yml
 vendors:
@@ -89,52 +89,52 @@ vendors:
   plugins: unpkg
 ```
 
-## Update
+## 更新
 
-A new version of NexT will be released every month. Please read the [release notes][docs-release-url] before updating the theme. You can update NexT by the following command.
+NexT 每个月都会发布新版本。请在更新前阅读[更新说明][docs-release-url]。你可以通过如下命令更新 NexT。
 
-Install the latest version through npm:
+通过 npm 安装最新版本：
 
 ```sh
 $ cd hexo-site
 $ npm install hexo-theme-next@latest
 ```
 
-Or update to the latest master branch:
+或者通过 git 更新到最新的 master 分支：
 
 ```sh
 $ cd themes/next
 $ git pull
 ```
 
-**If you want to update from v5.x / v7.x to the latest version, read [this][docs-upgrade-url].**
+**如果你想要从 v5.x / v7.x 更新到最新版本，阅读[这篇文档][docs-upgrade-url]。**
 
-## Feedback
+## 反馈
 
-* Visit the [Awesome NexT][awesome-next-url] list to share plugins and tutorials with other users.
-* Join our [GitHub discussions][discussions-url] / [Gitter][gitter-url] chats.
-* [Add or improve translation][i18n-url] in few seconds.
-* Report a bug in [GitHub Issues][issues-bug-url].
-* Request a new feature on [GitHub][issues-feat-url].
-* Vote for [popular feature requests][feat-req-vote-url].
+* 浏览 [Awesome NexT][awesome-next-url] 列表，与其它用户分享插件和教程。
+* 加入我们的 [GitHub discussions][discussions-url] / [Gitter][gitter-url] 聊天。
+* 请花几秒钟来[添加或修正翻译][i18n-url]。
+* 在 [GitHub Issues][issues-bug-url] 报告Bug。
+* 在 [GitHub][issues-feat-url] 请求新的功能。
+* 为 [受欢迎的 Feature request][feat-req-vote-url] 投票。
 
-## Contributing
+## 贡献你的代码
 
-We welcome you to join the development of NexT. Please see [contributing document][contributing-document-url]. 🤗
+我们欢迎你加入 NexT 的开发，贡献出你的一份力量。请看[开源贡献指南][contributing-document-url]。 🤗
 
-Also, we welcome Issue or PR to our [official-plugins][official-plugins-url].
+你也可以随时向我们的[官方插件][official-plugins-url]提交 Issue 或 Pull Request。
 
-## Contributors
+## 贡献者
 
 [![Contributors][contributors-image]][contributors-url]
 
-## Thanks
+## 鸣谢
 
-«NexT» send special thanks to these great services that sponsor our core infrastructure:
+«NexT» 特别感谢这些支持我们核心基础设施的优质服务：
 
 <a href="https://github.com"><img height="40" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png"></a>
 
-> GitHub allows us to host the Git repository and run the test suite.
+> GitHub 容许我们托管 Git 仓库及运行测试。
 
 <a href="https://www.netlify.com">
   <picture>
@@ -144,11 +144,11 @@ Also, we welcome Issue or PR to our [official-plugins][official-plugins-url].
   </picture>
 </a>
 
-> Netlify allows us to distribute the documentation.
+> Netlify 容许我们发布文档。
 
 <a href="https://crowdin.com"><img height="40" src="https://support.crowdin.com/assets/logos/crowdin-logo-small-black.svg"></a>
 
-> Crowdin allows us to translate conveniently the documentation.
+> Crowdin 容许我们方便地翻译文档。
 
 <a href="https://cdnjs.com">
   <picture>
@@ -158,11 +158,7 @@ Also, we welcome Issue or PR to our [official-plugins][official-plugins-url].
   </picture>
 </a>
 
-> Thanks CDNJS for providing public CDN service.
-
-## License
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fnext-theme%2Fhexo-theme-next.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fnext-theme%2Fhexo-theme-next?ref=badge_large)
+> 感谢 CDNJS 提供的 CDN 服务。
 
 [docs-installation-url]: https://theme-next.js.org/docs/getting-started/installation.html
 [docs-configuration-url]: https://theme-next.js.org/docs/getting-started/configuration.html
@@ -179,7 +175,7 @@ Also, we welcome Issue or PR to our [official-plugins][official-plugins-url].
 [issues-feat-url]: https://github.com/next-theme/hexo-theme-next/issues/new?assignees=&labels=Feature+Request&template=feature-request.md
 [feat-req-vote-url]: https://github.com/next-theme/hexo-theme-next/issues?q=is%3Aopen+is%3Aissue+label%3A%22Feature+Request%22
 
-[contributing-document-url]: https://github.com/next-theme/hexo-theme-next/blob/master/.github/CONTRIBUTING.md
+[contributing-document-url]: https://github.com/next-theme/hexo-theme-next/blob/master/docs/zh-CN/CONTRIBUTING.md
 [official-plugins-url]: https://github.com/next-theme
 [contributors-image]: https://raw.githubusercontent.com/next-theme/contributors/master/contributors.svg
 [contributors-url]: https://github.com/next-theme/hexo-theme-next/blob/master/docs/AUTHORS.md
