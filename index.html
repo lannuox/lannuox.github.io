@@ -8,21 +8,20 @@
     @font-face {
     font-family: 'JetBrainsMono';
 	src: url('fonts/JetBrainsMono-Regular.woff2') format('woff2'),
-		 url('fonts/JetBrainsMono-Thin.woff2') format('woff2'),
-		 url('fonts/JetBrainsMono-Medium.woff2') format('woff2'),
-		 url('fonts/JetBrainsMono-Light.woff2') format('woff2'),
-		 url('fonts/JetBrainsMono-Bold.woff2') format('woff2'),
-		 url('fonts/JetBrainsMono-Italic.woff2') format('woff2');
+	     url('fonts/JetBrainsMono-Thin.woff2') format('woff2'),
+	     url('fonts/JetBrainsMono-Medium.woff2') format('woff2'),
+	     url('fonts/JetBrainsMono-Light.woff2') format('woff2'),
+	     url('fonts/JetBrainsMono-Bold.woff2') format('woff2'),
+	     url('fonts/JetBrainsMono-Italic.woff2') format('woff2');
 	}
   
     body {
       font-family: 'JetBrainsMono', sans-serif;
       margin: 0;
-      overflow: hidden;
+      overflow: visible;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
     }
     #background {
       position: fixed;
@@ -39,29 +38,36 @@
       transition: transform 0.01s;
     }
     h1 {
-      text-align: center;
-	  font-family: 'JetBrainsMono', sans-serif;
-	  color: white;
-	  font-size: 50px;
+	    text-align: center;
+	    font-family: 'JetBrainsMono', sans-serif;
+	    color: white;
+	    font-size: 50px;
     }
+	  
+    h2 {
+	    text-align: center;
+	    font-family: 'JetBrainsMono', sans-serif;
+	    color: black;
+	    font-size: 20px;
+    }
+	  
     button {
-      margin: 10px;
-      padding: 5px 10px;
-      border-color: black;
-	  border-radius: 6px;
-      font-size: 18px;
-	  font-family: 'JetBrainsMono', sans-serif;
-	  color: #505050;
+	    margin: 10px;
+	    padding: 5px 10px;
+	    border-color: black;
+	    border-radius: 6px;
+	    font-size: 18px;
+	    font-family: 'JetBrainsMono', sans-serif;
+	    color: #505050;
     }
   </style>
   
   <script>
-  
-    let audio1 = new Audio('files/audio1.mp3');
-    let audio2 = new Audio('files/audio2.mp3');
-	let audio3 = new Audio('files/audio3.mp3');
-	let audio4 = new Audio('files/audio4.mp3');
-	let audio5 = new Audio('files/audio5.mp3');
+	  let audio1 = new Audio('files/audio1.mp3');
+	  let audio2 = new Audio('files/audio2.mp3');
+	  let audio3 = new Audio('files/audio3.mp3');
+	  let audio4 = new Audio('files/audio4.mp3');
+	  let audio5 = new Audio('files/audio5.mp3');
 
 // file location
 
@@ -184,7 +190,7 @@
 
 <body>
 	<div id="background"></div>
-	<h1>Immersive Noise</h1><hr>
+	<h1>Immersive Noise</h1>
 
 	<button onclick="playPauseMusic1()"><b>Rain</b></button>
 	<button onclick="playPauseMusic2()"><b>Thunder</b></button>
@@ -194,8 +200,8 @@
 
 	<button onclick="stopAllMusic()"><b>Back to Reality for a while...</b></button>
 	
-  <footer style="height:auto; background-color:#F7C201;">
-  	<h2><Made with 🤍 by Lannuox</h2>
+  <footer style="height:auto; background-color:black;">
+  	<h2> Made with 🤍 by Lannuox </h2>
   </footer>
 </body>
 </html>
