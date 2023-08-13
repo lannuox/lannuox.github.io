@@ -5,4 +5,4 @@
 > Non-profit, open-source, for educational purpose only.<br>
 `Still in process of building... Coming Soon` <br>
 
-![cute](background-image.jpg)
+![cute](md-image.jpg)
