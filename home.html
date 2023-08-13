@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title id="page-title">Immersive Noise</title>
+  <style>
+  
+    @font-face {
+    font-family: 'JetBrainsMono';
+	src: url('fonts/JetBrainsMono-Regular.woff2') format('woff2'),
+		 url('fonts/JetBrainsMono-Thin.woff2') format('woff2'),
+		 url('fonts/JetBrainsMono-Medium.woff2') format('woff2'),
+		 url('fonts/JetBrainsMono-Light.woff2') format('woff2'),
+		 url('fonts/JetBrainsMono-Bold.woff2') format('woff2'),
+		 url('fonts/JetBrainsMono-Italic.woff2') format('woff2');
+	}
+  
+    body {
+      font-family: 'JetBrainsMono', sans-serif;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      background: url('background-image.jpg') no-repeat center center fixed;
+      background-size: cover;
+      transform-origin: center;
+      transform: scale(1.2);
+      transition: transform 0.01s;
+    }
+    h1 {
+      text-align: center;
+	  font-family: 'JetBrainsMono', sans-serif;
+	  color: white;
+	  font-size: 50px;
+    }
+    button {
+      margin: 10px;
+      padding: 5px 10px;
+      border-color: black;
+	  border-radius: 6px;
+      font-size: 18px;
+	  font-family: 'JetBrainsMono', sans-serif;
+	  color: #505050;
+    }
+  </style>
+  
+  <script>
+  
+    let audio1 = new Audio('files/audio1.mp3');
+    let audio2 = new Audio('files/audio2.mp3');
+	let audio3 = new Audio('files/audio3.mp3');
+	let audio4 = new Audio('files/audio4.mp3');
+	let audio5 = new Audio('files/audio5.mp3');
+
+// file location
+
+    audio1.addEventListener('ended', function() {
+      audio1.currentTime = 0;
+      audio1.play();
+    });
+
+    audio2.addEventListener('ended', function() {
+      audio2.currentTime = 0;
+      audio2.play();
+    });
+
+	audio3.addEventListener('ended', function() {
+      audio3.currentTime = 0;
+      audio3.play();
+    });
+	
+	audio4.addEventListener('ended', function() {
+      audio4.currentTime = 0;
+      audio4.play();
+    });
+	
+	audio5.addEventListener('ended', function() {
+      audio5.currentTime = 0;
+      audio5.play();
+    });
+
+// audio replay
+
+    function playPauseMusic1() {
+      if (audio1.paused) {
+        audio1.play();
+      } else {
+        audio1.pause();
+      }
+    }
+
+    function playPauseMusic2() {
+      if (audio2.paused) {
+        audio2.play();
+      } else {
+        audio2.pause();
+      }
+    }
+	
+	function playPauseMusic3() {
+      if (audio3.paused) {
+        audio3.play();
+      } else {
+        audio3.pause();
+      }
+    }
+	
+	function playPauseMusic4() {
+      if (audio4.paused) {
+        audio4.play();
+      } else {
+        audio4.pause();
+      }
+    }
+	
+	function playPauseMusic5() {
+      if (audio5.paused) {
+        audio5.play();
+      } else {
+        audio5.pause();
+      }
+    }
+	
+// audio play pause
+
+    function stopAllMusic() {
+      audio1.pause();
+      audio1.currentTime = 0;
+      audio2.pause(); 
+      audio2.currentTime = 0;
+	  audio3.pause(); 
+      audio3.currentTime = 0;
+	  audio4.pause(); 
+      audio4.currentTime = 0;
+	  audio5.pause(); 
+      audio5.currentTime = 0;
+    }
+	
+// stop and reset
+
+    document.addEventListener('mousemove', (event) => {
+      const mouseX = event.clientX;
+      const mouseY = event.clientY;
+
+      const bgX = (mouseX / window.innerWidth - 0.5) * 100; // adjust
+      const bgY = (mouseY / window.innerHeight - 0.5) * 100; // adjust
+
+      const background = document.getElementById('background');
+      background.style.transform = `translate(${bgX}px, ${bgY}px) scale(1.2)`;
+    });
+	
+// moving background
+
+    const titles = [
+      'Meditate... | Immersive Noise',
+      'Breathe... | Immersive Noise',
+      'Concentrate... | Immersive Noise',
+      'Discipline... | Immersive Noise',
+	  'Focus... | Immersive Noise',
+	  'Emerge... | Immersive Noise',
+      'Relax... | Immersive Noise',
+	  'Think... | Immersive Noise'
+    ];
+
+    const randomIndex = Math.floor(Math.random() * titles.length);
+    const randomTitle = titles[randomIndex];
+    document.getElementById('page-title').textContent = randomTitle;
+
+// random title
+
+	</script>
+</head>
+
+<body>
+	<div id="background"></div>
+	<h1>Immersive Noise</h1>
+	<br>
+	<br>
+	<button onclick="playPauseMusic1()"><b>Hydro</b></button>
+	<button onclick="playPauseMusic2()"><b>Thunder</b></button>
+	<button onclick="playPauseMusic3()"><b>Keyboard</b></button>
+	<button onclick="playPauseMusic4()"><b>Coffee</b></button>
+	<button onclick="playPauseMusic5()"><b>Tree</b></button>
+
+	
+	<button onclick="stopAllMusic()"><b>Back to Reality for a while...</b></button>
+  
+</body>
+</html>
