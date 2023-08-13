@@ -1,5 +1,5 @@
 ### lannuox.github.io
-[**Immersive Noise**](https://www.example.com)
+[**Immersive Noise**](https://lannuox.github.io)
 
 > A relaxing website made by Lannuox. 
 > Non-profit, educational purpose only.<br>
