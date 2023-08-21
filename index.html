@@ -25,7 +25,7 @@
 
 <head>
 	<meta charset="UTF-8">
-  <title id="page-title">Immersive Noise</title>
+  <title>Immersive Noise</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <style>
   
@@ -40,28 +40,14 @@
 	}
   
     body {
-      font-family: 'JetBrainsMono', sans-serif;
-	overflow: hidden;
-	transition: background-color 0.3s, color 0.3s;
+		font-family: 'JetBrainsMono', sans-serif;
+		overflow: hidden;
+		transition: background-color 0.3s, color 0.3s, background-image 0.3s;
     }
-    #background {
-	  position:fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-      background: url('background-image.jpg') no-repeat center center fixed;
-      background-size: cover;
-      transform-origin: center;
-      transform: scale(1.2);
-      transition: transform 0.01s;
-    }
+
     h1 {
 	    text-align: center;
 	    font-family: 'JetBrainsMono', sans-serif;
-	    color: white;
 	    text-shadow: 5px 5px 10px black; 
 	    font-size: 60px;
     }
@@ -69,26 +55,79 @@
     h2 {
 	    text-align: center;
 	    font-family: 'JetBrainsMono', sans-serif;
-	    color: white;
 	    font-size: 16px;
 		opacity: 0.6;
     }
 	  
-    button {
+    .button {
 	    margin: 20px;
 	    padding: 15px 20px;
 	    border-color: black;
 	    border-radius: 6px;
 	    font-size: 18px;
 	    font-family: 'JetBrainsMono', sans-serif;
-	    color: white;
 		background-color: rgba(50,50,50,0.7);
+		color: white;
+		transition: background-color 0.3s, color 0.3s, background-image 0.3s;
     }
+	
+	body.dark-mode .button {
+  color: white; /* Set the button text color for dark mode */
+  
+}
+
+	body.light-mode .button {
+  color: black; /* Set the button text color for light mode */
+}
 	
 	a {
 		color: inherit;
 		text-decoration: none;
 	} 
+	
+
+  body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+	transition: background-color 0.3s, color 0.3s, background-image 0.3s;
+  }
+
+
+  body.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+	transition: background-color 0.3s, color 0.3s, background-image 0.3s;
+  }
+
+p {
+    display: inline;
+}
+
+
+    .parallax-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+
+    .parallax-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 110%;
+      height: 110%;
+      background-image: url('background-image-dark.jpg'); /* Dark background image */
+      background-size: cover;
+	  transform: translateZ(-1px) scale(var(--parallax-scale, 2));
+	  transition: background-image 0.3s;
+    }
+
+
   </style>
   
   <script>
@@ -168,41 +207,50 @@
 	
 // stop and reset
 
-    document.addEventListener('mousemove', (event) => {
-      const mouseX = event.clientX;
-      const mouseY = event.clientY;
 
-      const bgX = (mouseX / window.innerWidth - 0.5) * 100; // adjust
-      const bgY = (mouseY / window.innerHeight - 0.5) * 100; // adjust
+    function toggleTheme() {
+  const body = document.body;
+  const buttons = document.querySelectorAll('.button'); // Select all buttons
+  const parallaxBg = document.querySelector('.parallax-bg');
 
-      const background = document.getElementById('background');
-      background.style.transform = `translate(${bgX}px, ${bgY}px) scale(1.2)`;
-    });
+  body.classList.toggle('dark-mode');
+  body.classList.toggle('light-mode');
+
+	if (body.classList.contains('dark-mode')) {
+        parallaxBg.style.backgroundImage = "url('background-image-dark.jpg')"; // Dark background image
+      } else {
+        parallaxBg.style.backgroundImage = "url('background-image-light.jpg')"; // Light background image
+      }
+
+  // Loop through each button and toggle a class to adjust text color
+  buttons.forEach(button => {
+    button.classList.toggle('dark-mode');
+    button.classList.toggle('light-mode');
+  });
+}
 	
-// moving background
+//change web theme
 
-    const titles = [
-      'Meditate... | Immersive Noise',
-      'Breathe... | Immersive Noise',
-      'Concentrate... | Immersive Noise',
-      'Discipline... | Immersive Noise',
-	  'Focus... | Immersive Noise',
-	  'Emerge... | Immersive Noise',
-      'Relax... | Immersive Noise',
-	  'Think... | Immersive Noise'
-    ];
+// New function for parallax effect
+    function updateParallax(event) {
+      const parallaxBg = document.querySelector('.parallax-bg');
+      const xOffset = -event.clientX / window.innerWidth * 30; // Adjust parallax intensity
+      const yOffset = -event.clientY / window.innerHeight * 30; // Adjust parallax intensity
+	  parallaxBg.style.setProperty('--parallax-scale', 2);
+      parallaxBg.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+    }
 
-    const randomIndex = Math.floor(Math.random() * titles.length);
-    const randomTitle = titles[randomIndex];
-    document.getElementById('page-title').textContent = randomTitle;
+    // Attach parallax effect to mousemove event
+    document.addEventListener('mousemove', updateParallax);
 
-// random title
-
+	  
 	</script>
 </head>
 
-<body>
-	<div id="background"></div>
+<body class="dark-mode">
+<div class="parallax-container">
+    <div class="parallax-bg"></div>
+  </div>
 	<br>
 	<br>
 	<br>
@@ -212,14 +260,17 @@
 	<br>
 	<br>
 	<br>
-	<div style="margin:auto; width:70%">
-	<button onclick="playPauseMusic1()"><b>Rain</b></button>
-	<button onclick="playPauseMusic2()"><b>Wind</b></button>
-	<button onclick="playPauseMusic3()"><b>Keyboard</b></button>
-	<button onclick="playPauseMusic4()"><b>Coffee</b></button>
-	<button onclick="stopAllMusic()" style="color:orange"><b>Stop</b></button>
+	
+	<div style="margin:auto; width:50%">
+	<button class="button" onclick="playPauseMusic1()"><b>Rain</b></button>
+	<button class="button" onclick="playPauseMusic2()"><b>Wind</b></button>
+	<button class="button" onclick="playPauseMusic3()"><b>Keyboard</b></button>
+	<button class="button" onclick="playPauseMusic4()"><b>Coffee</b></button>
+	<button class="button" onclick="stopAllMusic()" style="color:orange"><b>Stop</b></button>
 	</div>
-	<br>
+	
+	<button class="button" id="theme-toggle" onclick="toggleTheme()" style="position:absolute; bottom:55px; right:20px; color:orange; font-size: 14px; padding: 10px 15px;">Theme</button>
+
 	<br>
 	<br>
 	<br>
@@ -232,7 +283,7 @@
 	<br>
 	<br>
   <footer>
-  <h2><i>Made with 🤍 by <a href="https://lannuox.github.io/about.html">Lannuox</a></i></h2>
+  <h2 style="color:black"><i>Made with <p style="color:red;">❤</p> by <a href="https://lannuox.github.io/about.html">Lannuox</a></i></h2>
   </footer>
 </body>
 </html>
