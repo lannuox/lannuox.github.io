@@ -87,15 +87,15 @@
 	
 
   body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
+    background-color: #404040;
+    color: white;
 	transition: background-color 0.3s, color 0.3s, background-image 0.3s;
   }
 
 
   body.light-mode {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: white;
+    color: #404040;
 	transition: background-color 0.3s, color 0.3s, background-image 0.3s;
   }
 
@@ -123,7 +123,7 @@ p {
       height: 110%;
       background-image: url('background-image-dark.jpg'); /* Dark background image */
       background-size: cover;
-	  transform: translateZ(-1px) scale(var(--parallax-scale, 2));
+	  transform: translateZ(-1px);
 	  transition: background-image 0.3s;
     }
 
@@ -236,7 +236,6 @@ p {
       const parallaxBg = document.querySelector('.parallax-bg');
       const xOffset = -event.clientX / window.innerWidth * 30; // Adjust parallax intensity
       const yOffset = -event.clientY / window.innerHeight * 30; // Adjust parallax intensity
-	  parallaxBg.style.setProperty('--parallax-scale', 2);
       parallaxBg.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
     }
 
