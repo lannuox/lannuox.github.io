@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-
 <!--                             _ooOoo_ -->
 <!--                            o8888888o -->
 <!--                            88" . "88 -->
@@ -25,6 +24,7 @@
 <!--                   佛祖保佑                  永无BUG -->
 
 <head>
+	<meta charset="UTF-8">
   <title id="page-title">Immersive Noise</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <style>
@@ -41,7 +41,8 @@
   
     body {
       font-family: 'JetBrainsMono', sans-serif;
-	  overflow: hidden;
+	overflow: hidden;
+	transition: background-color 0.3s, color 0.3s;
     }
     #background {
 	  position:fixed;
@@ -95,7 +96,6 @@
 	  let audio2 = new Audio('files/audio2.mp3');
 	  let audio3 = new Audio('files/audio3.mp3');
 	  let audio4 = new Audio('files/audio4.mp3');
-	  let audio5 = new Audio('files/audio5.mp3');
 
 // file location
 
@@ -119,11 +119,6 @@
       audio4.play();
     });
 	
-	audio5.addEventListener('ended', function() {
-      audio5.currentTime = 0;
-      audio5.play();
-    });
-
 // audio replay
 
     function playPauseMusic1() {
@@ -158,14 +153,6 @@
       }
     }
 	
-	function playPauseMusic5() {
-      if (audio5.paused) {
-        audio5.play();
-      } else {
-        audio5.pause();
-      }
-    }
-	
 // audio play pause
 
     function stopAllMusic() {
@@ -177,8 +164,6 @@
       audio3.currentTime = 0;
 	  audio4.pause(); 
       audio4.currentTime = 0;
-	  audio5.pause(); 
-      audio5.currentTime = 0;
     }
 	
 // stop and reset
@@ -227,12 +212,11 @@
 	<br>
 	<br>
 	<br>
-	<div style="margin:auto; width:60%">
+	<div style="margin:auto; width:70%">
 	<button onclick="playPauseMusic1()"><b>Rain</b></button>
-	<button onclick="playPauseMusic2()"><b>Thunder</b></button>
+	<button onclick="playPauseMusic2()"><b>Wind</b></button>
 	<button onclick="playPauseMusic3()"><b>Keyboard</b></button>
 	<button onclick="playPauseMusic4()"><b>Coffee</b></button>
-	<button onclick="playPauseMusic5()"><b>Tree</b></button>
 	<button onclick="stopAllMusic()" style="color:orange"><b>Stop</b></button>
 	</div>
 	<br>
