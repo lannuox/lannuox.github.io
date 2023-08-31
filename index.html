@@ -42,7 +42,7 @@
     body {
 		font-family: 'JetBrainsMono', sans-serif;
 		overflow: hidden;
-		transition: background-color 0.3s, color 0.3s, background-image 0.3s;
+		transition: background-color 0.3s, color 0.3s, background-image 1s;
     }
 
     h1 {
@@ -60,25 +60,38 @@
     }
 	  
     .button {
-	    margin: 20px;
-	    padding: 15px 20px;
+	    margin: 15px;
+	    padding: 20px 47px;
 	    border-color: black;
-	    border-radius: 6px;
-	    font-size: 18px;
+	    border-radius: 10px;
+	    font-size: 20px;
 	    font-family: 'JetBrainsMono', sans-serif;
-		background-color: rgba(50,50,50,0.7);
+		background-color: rgba(50,50,50,0.8);
 		color: white;
 		transition: background-color 0.3s, color 0.3s, background-image 0.3s;
     }
 	
 	body.dark-mode .button {
   color: white; /* Set the button text color for dark mode */
-  
+  background-color: rgba(50,50,50,0.8);
 }
 
 	body.light-mode .button {
   color: black; /* Set the button text color for light mode */
+  background-color: rgba(150,150,150,0.8);
 }
+	
+		body.dark-mode .box {
+  background-color: rgba(50,50,50,0.8);
+  border: 5px solid white; /* Set the box color for dark mode */
+  
+}
+
+	body.light-mode .box {
+  background-color: rgba(220,220,220,0.8);
+  border: 5px solid black; /* Set the box color for light mode */
+}
+	
 	
 	a {
 		color: inherit;
@@ -87,7 +100,7 @@
 	
 
   body.dark-mode {
-    background-color: #404040;
+    background-color: black;
     color: white;
 	text-shadow: 5px 5px 10px black;
 	transition: background-color 0.3s, color 0.3s, background-image 0.3s;
@@ -96,7 +109,7 @@
 
   body.light-mode {
     background-color: white;
-    color: #404040;
+    color: black;
 	text-shadow: 5px 5px 10px white;
 	transition: background-color 0.3s, color 0.3s, background-image 0.3s;
   }
@@ -110,8 +123,8 @@ p {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 110%;
+      height: 110%;
       z-index: -1;
       overflow: hidden;
     }
@@ -121,13 +134,62 @@ p {
       position: absolute;
       top: 0;
       left: 0;
-      width: 110%;
-      height: 110%;
+      width: 100%;
+      height: 100%;
       background-image: url('background-image-dark.jpg'); /* Dark background image */
       background-size: cover;
 	  transform: translateZ(-1px);
 	  transition: background-image 0.3s;
     }
+
+.box {
+  background-color: rgba(50,50,50,0.8);
+  border: 5px solid white;
+  z-index: 0;
+  margin: 60px 200px;
+  padding: 20px 50px 20px 20px;
+  position absolute;
+  border-radius: 40px;
+  transition: background-color 0.3s, color 0.3s, background-image 0.3s;
+}
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 40px;
+  background: #FFFFFF;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border-radius: 7px;  
+  border: 5px solid white;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 40px;
+  background: #FF9300;
+  cursor: pointer;
+  border-radius: 5px;  
+}
+
+.slider::-moz-range-thumb {
+  width: 40px;
+  height: 25px;
+  background: #FF9300;
+  cursor: pointer;
+}
+</style>
 
 
   </style>
@@ -214,6 +276,7 @@ p {
   const body = document.body;
   const buttons = document.querySelectorAll('.button'); // Select all buttons
   const parallaxBg = document.querySelector('.parallax-bg');
+  const box = document.querySelectorAll('.box');
 
   body.classList.toggle('dark-mode');
   body.classList.toggle('light-mode');
@@ -244,6 +307,12 @@ p {
     // Attach parallax effect to mousemove event
     document.addEventListener('mousemove', updateParallax);
 
+  function updateVolume(volume) {
+    audio1.volume = volume;
+    audio2.volume = volume;
+    audio3.volume = volume;
+    audio4.volume = volume;
+  }
 	  
 	</script>
 </head>
@@ -253,25 +322,32 @@ p {
     <div class="parallax-bg"></div>
   </div>
 	<br>
-	<br>
-	<br>
-	<br>
-	<h1><a href="https://lannuox.github.io">Immersive Noise.</a></h1>
-	<br>
-	<br>
-	<br>
-	<br>
-	
-	<div style="margin:auto; width:50%">
+	<div class="box">
+	<div style="margin:auto; width:95%">
 	<button class="button" onclick="playPauseMusic1()"><b>Rain</b></button>
 	<button class="button" onclick="playPauseMusic2()"><b>Wind</b></button>
 	<button class="button" onclick="playPauseMusic3()"><b>Keyboard</b></button>
 	<button class="button" onclick="playPauseMusic4()"><b>Coffee</b></button>
 	<button class="button" onclick="stopAllMusic()" style="color:orange"><b>Stop</b></button>
 	</div>
-	
-	<button class="button" id="theme-toggle" onclick="toggleTheme()" style="position:absolute; bottom:55px; right:20px; color:orange; font-size: 14px; padding: 10px 15px;">Theme</button>
-
+	<br>
+	<br>
+	<br>
+	<h1><a href="https://lannuox.github.io">Immersive Noise.</a></h1>	
+	<button class="button" id="theme-toggle" onclick="toggleTheme()" style="color:orange; position:absolute; margin: 60px 0px 0px 900px"><b>Theme</b></button>
+	      
+		  <div style="position:absolute; margin: 80px 0px 0px 16px">
+      <input
+	  class="slider"
+        type="range"
+        id="volume-slider"
+        min="0"
+        max="1"
+        step="0.01"
+        value="1"
+        oninput="updateVolume(this.value)"
+      />
+	  </div>
 	<br>
 	<br>
 	<br>
@@ -279,12 +355,10 @@ p {
 	<br>
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+	</div>
   <footer>
-  <h2 style="color:black"><i>Made with <p style="color:red;">❤</p> by <a href="https://lannuox.github.io/about.html">Lannuox</a></i></h2>
+   <h2 style="color:black"><i> = Learn More About <a href="https://lannuox.github.io/about.html" style="color:orange">White Noise </a> =</i></h2>
+  <h2 style="color:#4A4A4A"><i>Made with <p style="color:red;">❤</p> by <a href="https://lannuox.github.io/credit.html">Lannuox</a></i></h2>
   </footer>
 </body>
 </html>
