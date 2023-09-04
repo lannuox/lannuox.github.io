@@ -48,7 +48,7 @@
     h1 {
 	    text-align: center;
 	    font-family: 'JetBrainsMono', sans-serif;
-	    text-shadow: 5px 5px 10px black; 
+	    text-shadow: 5px 5px 8px black; 
 	    font-size: 60px;
     }
 	  
@@ -192,6 +192,15 @@ p {
   height: 25px;
   background: #FF9300;
   cursor: pointer;
+}
+
+@keyframes wave{
+    from{
+        background-position: 0 -20px;
+    }
+    to{
+        background-position: 1500px -20px;
+    }
 }
 </style>
 
@@ -347,7 +356,12 @@ preload_image("https://lannuox.github.io/background-image-light.jpg");
 	<br>
 	<br>
 	<br>
-	<h1><a href="https://lannuox.github.io">Immersive Noise.</a></h1>	
+	<div style="
+	color: rgba(255, 255, 255, 0.4);
+	background-image: url(./water.png);
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    animation: wave 20s linear infinite;"><h1><a href="https://lannuox.github.io">Immersive Noise</a></h1></div>
 	<button class="button" id="theme-toggle" onclick="toggleTheme()" style="color:orange; position:absolute; margin: 60px 0px 0px 900px"><b>Theme</b></button>
 	      
 		  <div style="position:absolute; margin: 80px 0px 0px 16px">
